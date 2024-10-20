@@ -34,3 +34,13 @@ class Tela_produto(tk.Frame):
         # Botão de comprar
         botao_comprar = tk.Button(self, text="Comprar", font=("Arial", 12), bg="pink", fg="white")
         botao_comprar.grid(row=0, column=2, rowspan=4, padx=10)
+
+        botao_voltar = tk.Button(self, text='Voltar', command=self.voltar)
+        botao_voltar.grid(row=0, column=2)
+
+    def voltar(self):
+        tela_inicial = self.app.telas[1]
+        self.app.trocar_tela(tela_inicial)
+
+        for widget in self.winfo_children():#destroi todas as crianças do frame
+            widget.destroy()

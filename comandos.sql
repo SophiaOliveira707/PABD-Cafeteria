@@ -34,3 +34,9 @@ SELECT * FROM pagamentos;
 
 INSERT INTO usuarios (cod_usuario,nome,senha) VALUES (1,'Sophia','teste');
 INSERT INTO usuarios (cod_usuario,nome,senha) VALUES (2,'Luis','ajudante');
+
+INSERT INTO produtos(cod_produto,nome,preco,tamanho,sabor,imagem) VALUES (1,'Bolo',18.50,'grande','morango','imagens/bolo.jpeg');
+INSERT INTO produtos(cod_produto,nome,preco,tamanho,sabor,imagem) VALUES (2,'Bolo',15.00,'grande','laranja','imagens/bololaranja.jpeg');
+INSERT INTO produtos(cod_produto,nome,preco,tamanho,sabor,imagem) VALUES (3,'Café',08.00,'grande','canela','imagens/cafe.jpeg');
+INSERT INTO produtos(cod_produto,nome,preco,tamanho,sabor,imagem) VALUES (4,'Bebida',12.50,'grande','morango','imagens/bebidamorango.jpeg');
+INSERT INTO produtos(cod_produto,nome,preco,tamanho,sabor,imagem) VALUES (5,'Torta',07.50,'grande','maçã','imagens/torta.jpeg');

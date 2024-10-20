@@ -28,13 +28,8 @@ class Tela_inicial(tk.Frame):
         scrollbar.pack(side="right", fill="y")
 
         # Lista de self.produtos (caminho da imagem, preço)
-        self.produtos = [
-            (1,'bolo',18.50,'grande','morango','imagens/bolo.jpeg'),
-            (2,'bolo',15.00,'grande','laranja','imagens/bololaranja.jpeg'),
-            (3,'café',08.00,'grande','canela','imagens/cafe.jpeg'),
-            (4,'Bebida de morango',12.50,'grande','morango','imagens/bebidamorango.jpeg'),
-            (5,'Torta de maçã',07.50,'grande','maçã','imagens/torta.jpeg')
-        ]
+        self.app.banco_de_dados.executar('SELECT * FROM produtos')
+        self.produtos = self.app.banco_de_dados.pegar_valores()
 
         # Definindo o layout com duas colunas
         for i, (cod,nome,preco,tamanho,sabor,caminho_imagem) in enumerate(self.produtos):
