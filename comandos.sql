@@ -9,8 +9,9 @@ CREATE TABLE produtos(
     cod_produto int,
     nome varchar(20) not null,
     preco float,
-    sabor varchar(20) not null,
     tamanho varchar(20) not null,
+    sabor varchar(20) not null,
+    imagem varchar(30) not null,
     CONSTRAINT pk_produto PRIMARY KEY (cod_produto)
 );
 
@@ -25,8 +26,11 @@ CREATE TABLE pagamentos(
     CONSTRAINT fk_produto FOREIGN KEY (cod_produto) references produtos (cod_produto)
 );
 
+/*
 SELECT * FROM usuarios;
 SELECT * FROM produtos;
 SELECT * FROM pagamentos;
+*/
 
 INSERT INTO usuarios (cod_usuario,nome,senha) VALUES (1,'Sophia','teste');
+INSERT INTO usuarios (cod_usuario,nome,senha) VALUES (2,'Luis','ajudante');
