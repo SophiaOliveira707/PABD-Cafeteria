@@ -13,7 +13,7 @@ class Bd_cafe:
         self.cursor = self.db_connection.cursor()
     #executar consulta
     def executar(self,comando):
-        self.cursor.execute('SELECT * FROM cafeteria')
+        self.cursor.execute(comando)
 
-    def pegarValores(self):
+    def pegar_valores(self):
         return self.cursor.fetchall()

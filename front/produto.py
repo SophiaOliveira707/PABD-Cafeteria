@@ -36,7 +36,7 @@ button_buy.pack(pady=(10, 20))
 
 '''
 
-
+#tela innicial
 import tkinter as tk
 from PIL import Image, ImageTk
 
@@ -50,7 +50,7 @@ def criar_tela():
     frame.pack()
 
     # Imagem do produto
-    img = Image.open("imagens/download (5).jpeg")  # Substitua pelo caminho da sua imagem
+    img = Image.open("imagens/bolo.jpeg")  # Substitua pelo caminho da sua imagem
     img = img.resize((150, 150))  # Redimensionando a imagem
     img_tk = ImageTk.PhotoImage(img)
 

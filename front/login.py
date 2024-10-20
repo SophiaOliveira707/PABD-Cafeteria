@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from entidades.usuario import *
 
 class Tela_login(tk.Frame):
     def __init__(self, app):#Executa quando iniciar a classe
@@ -25,12 +26,17 @@ class Tela_login(tk.Frame):
 
     #obtem o valo de usuario e senha
     def login(self):
-        username = self.usuario.get()
-        password = self.senha.get()
-        
-        #Colocar criterios para o login dar certo
-        if username == "sophia" and password == "1234":
+        usuario = self.usuario.get()
+        senha = self.senha.get()
+
+        #Pega no banco de dados todos os usuários com o nome e senha digitados
+        self.app.banco_de_dados.executar(f"SELECT * FROM usuarios WHERE nome='{usuario}' AND senha='{senha}'")
+        correspondencias = self.app.banco_de_dados.pegar_valores()
+
+        try:#Tentando acessar o usuário com o nome e senha digitados
+            self.app.usuario = Usuario(correspondencias[0])
+
             tela_inicial = self.app.telas[1]
             self.app.trocar_tela(tela_inicial)
-        else:
+        except:#Caso esse usuário não exista, exibe um erro
             messagebox.showerror("Login", "Usuário ou senha incorretos.")

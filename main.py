@@ -1,12 +1,15 @@
 import tkinter as tk
 from front.login import Tela_login
-from front.Inicial import Tela_inicial
+from front.inicial import Tela_inicial
+from funcoes.sql import *
 
 class App(tk.Tk):
     def __init__(self,title,geometry):
         super().__init__()
         self.title(title)
         self.geometry(geometry)
+        self.banco_de_dados = Bd_cafe()
+        self.usuario = None
 
         self.telas = [Tela_login(app=self), Tela_inicial(app=self)]
 

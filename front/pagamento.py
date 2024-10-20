@@ -48,3 +48,4 @@ entry_cupom.pack(fill='x')
 confirmar_btn = tk.Button(frame, text="Confirmar", bg="lightblue", padx=5, pady=5)
 confirmar_btn.pack(pady=20)
 
+root.mainloop()
