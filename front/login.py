@@ -21,7 +21,7 @@ class Tela_login(tk.Frame):
         self.senha.pack(pady=(0, 20))
 
         # Botão 
-        botao_login = tk.Button(self, text="Login", command=self.login)
+        botao_login = tk.Button(self, text="Login", bg="pink", fg="white",command=self.login)
         botao_login.pack()
 
     #obtem o valo de usuario e senha

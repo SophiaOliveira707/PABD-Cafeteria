@@ -7,6 +7,9 @@ class Tela_inicial(tk.Frame):
         super().__init__()
         self.app = app
 
+        botao_usuario = tk.Button(self, text="usuario", bg="pink", fg="white",command=self.acessar_usuario)
+        botao_usuario.pack(anchor='ne',padx=10,pady=10)
+
         # Criar um Canvas e uma barra de rolagem
         canvas = tk.Canvas(self)
         scrollbar = tk.Scrollbar(self, orient="vertical", command=canvas.yview)
@@ -59,3 +62,8 @@ class Tela_inicial(tk.Frame):
         
         produto = Produto(self.produtos[index])
         tela_produto.carregar(produto)
+
+    def acessar_usuario(self):
+        tela_usuario = self.app.telas[4]
+        self.app.trocar_tela(tela_usuario)
+        tela_usuario.carregar()

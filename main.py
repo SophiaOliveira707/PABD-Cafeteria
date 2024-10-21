@@ -3,6 +3,8 @@ from front.login import Tela_login
 from front.inicial import Tela_inicial
 from funcoes.sql import *
 from front.produto import Tela_produto
+from front.pagamento import Tela_pagamento
+from front.usuario import Tela_usuario
 
 class App(tk.Tk):
     def __init__(self,title,geometry):
@@ -13,9 +15,9 @@ class App(tk.Tk):
         self.usuario = None
         self.resizable(False,False)
 
-        self.telas = [Tela_login(app=self), Tela_inicial(app=self),Tela_produto(app=self)]
+        self.telas = [Tela_login(app=self), Tela_inicial(app=self),Tela_produto(app=self),Tela_pagamento(app=self),Tela_usuario(app=self)]
 
-        self.tela_ativa = self.telas[1]
+        self.tela_ativa = self.telas[0]
         self.tela_ativa.pack(fill="both", expand=True)
 
     def trocar_tela(self,tela):

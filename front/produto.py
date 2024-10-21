@@ -9,6 +9,7 @@ class Tela_produto(tk.Frame):
         self.app = app
 
     def carregar(self,produto:Produto):
+        self.produto = produto
         img = Image.open(produto.imagem)  # Substitua pelo caminho da sua imagem
         img = img.resize((150, 150))  # Redimensionando a imagem
         img_tk = ImageTk.PhotoImage(img)
@@ -32,8 +33,8 @@ class Tela_produto(tk.Frame):
         tamanho_label.grid(row=3, column=1, sticky='w')
 
         # Botão de comprar
-        botao_comprar = tk.Button(self, text="Comprar", font=("Arial", 12), bg="pink", fg="white")
-        botao_comprar.grid(row=0, column=2, rowspan=4, padx=10)
+        self.botao_comprar = tk.Button(self, text="Comprar", font=("Arial", 12), bg="pink", fg="white", command=self.comprar)
+        self.botao_comprar.grid(row=0, column=2, rowspan=4, padx=10)
 
         botao_voltar = tk.Button(self, text='Voltar', command=self.voltar)
         botao_voltar.grid(row=0, column=2)
@@ -44,3 +45,8 @@ class Tela_produto(tk.Frame):
 
         for widget in self.winfo_children():#destroi todas as crianças do frame
             widget.destroy()
+
+    def comprar(self):
+        tela_pagamento = self.app.telas[3]
+        self.app.trocar_tela(tela_pagamento)
+        tela_pagamento.carregar(self.produto)
