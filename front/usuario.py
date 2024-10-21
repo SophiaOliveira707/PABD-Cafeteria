@@ -28,11 +28,19 @@ class Tela_usuario(tk.Frame):
         self.btn_apagar.pack(pady=5)
 
     def alterar_dados(self):
-        
+        novoUsuario = self.entrada_nome.get()
+        if novoUsuario == '':
+            novoUsuario = self.app.usuario.nome
+
+        novaSenha = self.entrada_senha.get()
+        if novaSenha == '':
+            novaSenha = self.app.usuario.senha
+
+        self.app.banco_de_dados.executar(f"UPDATE usuarios SET nome='{novoUsuario}', senha='{novaSenha}' WHERE cod_usuario={self.app.usuario.cod}")
         self.voltar()
 
     def apagar_usuario(self):
-        self.app.database.executar(f"DELETE FROM usuarios WHERE cod_usuario={self.app.usuario.cod}")
+        self.app.banco_de_dados.executar(f"DELETE FROM usuarios WHERE cod_usuario={self.app.usuario.cod}")
         self.voltar()
 
     def voltar(self):
